@@ -1,65 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>오늘 뭐 먹지? | 인기 메뉴</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>오늘 뭐 먹지? | 인기 메뉴</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body data-page="popular">
-  <div class="site-shell">
-    
-<div class="navbar">
-  <div class="container navbar-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-mark">🍽️</div>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-badge">🍽️</div>
       <div>
-        <div class="brand-title">오늘 뭐 먹지?</div>
-        <div class="brand-sub">Food Recommendation Website</div>
+        <div>오늘 뭐 먹지?</div>
+        <div style="font-size:.9rem;color:var(--muted);font-weight:600">Food Recommendation Website</div>
       </div>
-    </a>
-    <nav class="nav-links">
-      <a href="index.html" data-page="index">Home</a>
-      <a href="recommend.html" data-page="recommend">음식 추천</a>
-      <a href="categories.html" data-page="categories">카테고리</a>
-      <a href="popular.html" data-page="popular">인기 메뉴</a>
+    </div>
+    <nav class="nav">
+      <a class="" href="index.html">Home</a>
+      <a class="" href="recommend.html">음식 추천</a>
+      <a class="" href="categories.html">카테고리</a>
+      <a class="active" href="popular.html">인기 메뉴</a>
     </nav>
   </div>
-</div>
+</header>
 
-    
-<main class="container">
-  <section class="section" style="padding-top:36px;">
-    <div class="section-head">
-      <div class="badge">인기 메뉴 페이지</div>
-      <h1 class="section-title" style="font-size:38px;">학생들이 자주 고를 만한 메뉴</h1>
-      <p class="section-desc">직관적으로 보기 좋게 순위를 넣어 정리했습니다.</p>
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / 인기 메뉴</div>
+      <h2>인기 메뉴</h2>
+      <p class="section-lead">학생들이 자주 선택할 만한 메뉴를 기준으로 순위를 형태로 구성했습니다.</p>
+      <div class="section-box">
+        <div class="menu-list" id="popularList"></div>
+      </div>
     </div>
-    <article class="card rank-panel">
-      <div id="popular-list" class="rank-list"></div>
-    </article>
   </section>
 </main>
 
-    
 <footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <strong>오늘 뭐 먹지? 웹사이트</strong><br>
-      <span class="small">HTML, CSS, JavaScript로 제작한 개인 프로젝트</span>
-    </div>
-    <div>
-      <strong>제작자</strong><br>
-      <span class="small">주수혁</span>
-    </div>
-    <div>
-      <strong>배포 주소</strong><br>
-      <span class="small">https://eggmango3870-wq.github.io/food-recommend-site/</span>
-    </div>
+  <div class="container footbox">
+    <div>웹사이트 제작 및 출판 과제용 개인 프로젝트</div>
+    <div>HTML · CSS · JavaScript · GitHub Pages</div>
   </div>
 </footer>
-
-  </div>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
