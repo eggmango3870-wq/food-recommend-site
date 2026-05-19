@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>오늘 뭐 먹지? | 음식 추천</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-badge">🍽️</div>
+      <div>
+        <div>오늘 뭐 먹지?</div>
+        <div style="font-size:.9rem;color:var(--muted);font-weight:600">Food Recommendation Website</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="" href="index.html">Home</a>
+      <a class="active" href="recommend.html">음식 추천</a>
+      <a class="" href="categories.html">카테고리</a>
+      <a class="" href="popular.html">인기 메뉴</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">Home / 음식 추천</div>
+      <div class="section-box">
+        <h2>음식 추천</h2>
+        <p class="section-lead">카테고리와 상황을 선택한 뒤 추천 버튼을 누르면 메뉴가 즉시 바뀌는 화면입니다.</p>
+
+        <div class="toolbar">
+          <div class="field">
+            <label for="categorySelect">음식 종류</label>
+            <select id="categorySelect"></select>
+          </div>
+          <div class="field">
+            <label for="situationSelect">상황</label>
+            <select id="situationSelect"></select>
+          </div>
+          <div class="field" style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" id="recommendBtn">추천받기</button>
+            <button class="btn btn-ghost" id="randomBtn">랜덤</button>
+            <button class="btn btn-ghost" id="resetBtn">초기화</button>
+          </div>
+        </div>
+
+        <article class="result">
+          <div class="result-top">
+            <span class="pill" id="resultCategory">카테고리</span>
+            <span class="pill">실시간 추천</span>
+          </div>
+          <h3 id="resultName">메뉴명</h3>
+          <p id="resultDesc" style="color:var(--muted);line-height:1.8">설명</p>
+
+          <div class="result-grid">
+            <div class="food-visual">
+              <div class="plate"></div>
+              <div class="emoji" id="emojiBox">🍽️</div>
+            </div>
+            <div class="food-meta">
+              <div class="meta-row" id="timeRow"><div><span>조리/대기 시간</span><b>--</b></div></div>
+              <div class="meta-row" id="priceRow"><div><span>가격대</span><b>--</b></div></div>
+              <div class="meta-row" id="reasonRow"><div><span>추천 조건</span><b>--</b></div></div>
+              <div class="meta-row">
+                <div>
+                  <span>추천 태그</span>
+                  <div class="tags" id="resultTags" style="margin-top:8px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footbox">
+    <div>웹사이트 제작 및 출판 과제용 개인 프로젝트</div>
+    <div>HTML · CSS · JavaScript · GitHub Pages</div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
