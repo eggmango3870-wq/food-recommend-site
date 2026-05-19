@@ -1,5 +1,7 @@
 const menuData = [
-  { name: "김치찌개", category: "한식", situations: ["혼밥", "빠르게 먹기", "든든하게"], time: "15분", price: "8,000원대", emoji: "🍲", desc: "따뜻하고 익숙한 맛으로 가장 무난하게 만족도가 높은 메뉴입니다." },
+  { name: "김치찌개", category: "한식", situations: ["혼밥", "빠르게 먹기", "든든하게"], time: "15분", price: "8,000원대", emoji: "🍲", desc: "따뜻하고 익숙한 맛으로 가장 무난하게 만족도가 높은 메뉴입니다.",
+  img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80"
+  },
   { name: "제육볶음", category: "한식", situations: ["친구와 식사", "든든하게"], time: "20분", price: "9,000원대", emoji: "🥘", desc: "밥과 함께 먹기 좋고 매콤한 맛이 살아 있어 든든한 한 끼에 잘 맞습니다." },
   { name: "된장찌개", category: "한식", situations: ["혼밥", "든든하게"], time: "12분", price: "7,000원대", emoji: "🍚", desc: "자극적이지 않아 깔끔하게 먹고 싶을 때 좋은 메뉴입니다." },
   { name: "짜장면", category: "중식", situations: ["혼밥", "빠르게 먹기", "친구와 식사"], time: "10분", price: "7,000원대", emoji: "🍜", desc: "빠르게 주문할 수 있고 호불호가 적어 누구와 먹어도 무난합니다." },
