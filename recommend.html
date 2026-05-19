@@ -1,90 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>오늘 뭐 먹지? | 음식 추천</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘 뭐 먹지? | 음식 추천</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="brand">
-      <div class="brand-badge">🍽️</div>
+<body data-page="recommend">
+  <div class="site-shell">
+    
+<div class="navbar">
+  <div class="container navbar-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-mark">🍽️</div>
       <div>
-        <div>오늘 뭐 먹지?</div>
-        <div style="font-size:.9rem;color:var(--muted);font-weight:600">Food Recommendation Website</div>
+        <div class="brand-title">오늘 뭐 먹지?</div>
+        <div class="brand-sub">Food Recommendation Website</div>
       </div>
-    </div>
-    <nav class="nav">
-      <a class="" href="index.html">Home</a>
-      <a class="active" href="recommend.html">음식 추천</a>
-      <a class="" href="categories.html">카테고리</a>
-      <a class="" href="popular.html">인기 메뉴</a>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index">Home</a>
+      <a href="recommend.html" data-page="recommend">음식 추천</a>
+      <a href="categories.html" data-page="categories">카테고리</a>
+      <a href="popular.html" data-page="popular">인기 메뉴</a>
     </nav>
   </div>
-</header>
+</div>
 
-<main>
-  <section class="page-hero">
-    <div class="container">
-      <div class="breadcrumb">Home / 음식 추천</div>
-      <div class="section-box">
-        <h2>음식 추천</h2>
-        <p class="section-lead">카테고리와 상황을 선택한 뒤 추천 버튼을 누르면 메뉴가 바로 바뀌는 화면입니다.</p>
+    
+<main class="container">
+  <section class="section" style="padding-top:36px;">
+    <div class="section-head">
+      <div class="badge">맞춤 추천 페이지</div>
+      <h1 class="section-title" style="font-size:38px;">조건을 고르면 바로 추천</h1>
+      <p class="section-desc">카테고리와 상황을 선택하면 추천 메뉴가 바뀌도록 만들었습니다. 결과 화면에는 메뉴 설명과 그림이 함께 나타납니다.</p>
+    </div>
+  </section>
 
-        <div class="toolbar">
-          <div class="field">
-            <label for="categorySelect">음식 종류</label>
-            <select id="categorySelect"></select>
-          </div>
-          <div class="field">
-            <label for="situationSelect">상황</label>
-            <select id="situationSelect"></select>
-          </div>
-          <div class="field" style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary" id="recommendBtn">추천받기</button>
-            <button class="btn btn-ghost" id="randomBtn">랜덤</button>
-            <button class="btn btn-ghost" id="resetBtn">초기화</button>
+  <section class="drawer">
+    <article class="card filter-panel">
+      <h2 style="margin:0 0 10px; font-size:24px;">선택 조건</h2>
+      <p class="section-desc">직접 선택하거나 버튼을 눌러 추천 메뉴를 바꿀 수 있습니다.</p>
+      <div class="select-grid">
+        <div class="field">
+          <label for="category-filter">음식 카테고리</label>
+          <select id="category-filter"></select>
+        </div>
+        <div class="field">
+          <label for="situation-filter">상황</label>
+          <select id="situation-filter"></select>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <strong>카테고리 빠른 선택</strong>
+        <div class="chip-row" data-group="category">
+          <button class="chip active" data-value="전체">전체</button>
+          <button class="chip" data-value="한식">한식</button>
+          <button class="chip" data-value="중식">중식</button>
+          <button class="chip" data-value="양식">양식</button>
+          <button class="chip" data-value="일식">일식</button>
+          <button class="chip" data-value="분식">분식</button>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <strong>상황 빠른 선택</strong>
+        <div class="chip-row" data-group="situation">
+          <button class="chip active" data-value="전체">전체</button>
+          <button class="chip" data-value="빨리">빨리</button>
+          <button class="chip" data-value="든든하게">든든하게</button>
+          <button class="chip" data-value="가볍게">가볍게</button>
+          <button class="chip" data-value="친구와">친구와</button>
+          <button class="chip" data-value="야식">야식</button>
+          <button class="chip" data-value="분위기 있게">분위기 있게</button>
+          <button class="chip" data-value="균형 있게">균형 있게</button>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:20px;">
+        <button class="btn btn-primary" id="recommend-btn">추천하기</button>
+        <button class="btn btn-secondary" id="shuffle-btn">다시 추천</button>
+      </div>
+      <div class="note">선택한 조건에 맞는 메뉴가 없으면 전체 메뉴 중에서 다시 고릅니다.</div>
+    </article>
+
+    <article class="card result-panel">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px; flex-wrap:wrap;">
+        <div>
+          <div class="badge" style="margin-bottom:8px;">추천 결과</div>
+          <h2 style="margin:0; font-size:26px;">오늘의 한 끼</h2>
+        </div>
+        <span class="tag">AI 없이 직접 제작</span>
+      </div>
+      <div class="result">
+        <div class="result-art"><img id="result-img" alt="추천 음식 그림"></div>
+        <div>
+          <div class="result-meta" id="result-meta"></div>
+          <h3 class="result-name" id="result-name"></h3>
+          <p class="result-desc" id="result-desc"></p>
+          <div class="result-tags" id="result-tags"></div>
+          <div class="info-card" style="padding:16px; background: rgba(255,255,255,0.68); margin-top:4px;">
+            <strong>선정 이유</strong>
+            <p class="info-text" id="result-reason" style="margin-top:8px;"></p>
           </div>
         </div>
-
-        <article class="result">
-          <div class="result-top">
-            <span class="pill" id="resultCategory">카테고리</span>
-            <span class="pill">실시간 추천</span>
-          </div>
-          <h3 id="resultName">메뉴명</h3>
-          <p id="resultDesc" style="color:var(--muted);line-height:1.8">설명</p>
-
-          <div class="result-grid">
-            <div class="food-visual">
-              <img id="foodImage" class="food-image" alt="추천 음식 이미지" />
-            </div>
-            <div class="food-meta">
-              <div class="meta-row" id="timeRow"><div><span>조리/대기 시간</span><b>--</b></div></div>
-              <div class="meta-row" id="priceRow"><div><span>가격대</span><b>--</b></div></div>
-              <div class="meta-row" id="reasonRow"><div><span>추천 조건</span><b>--</b></div></div>
-              <div class="meta-row">
-                <div>
-                  <span>추천 태그</span>
-                  <div class="tags" id="resultTags" style="margin-top:8px"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
       </div>
-    </div>
+    </article>
   </section>
 </main>
 
+    
 <footer class="footer">
-  <div class="container footbox">
-    <div>웹사이트 제작 및 출판 과제용 개인 프로젝트</div>
-    <div>HTML · CSS · JavaScript · GitHub Pages</div>
+  <div class="container footer-inner">
+    <div>
+      <strong>오늘 뭐 먹지? 웹사이트</strong><br>
+      <span class="small">HTML, CSS, JavaScript로 제작한 개인 프로젝트</span>
+    </div>
+    <div>
+      <strong>제작자</strong><br>
+      <span class="small">주수혁</span>
+    </div>
+    <div>
+      <strong>배포 주소</strong><br>
+      <span class="small">https://eggmango3870-wq.github.io/food-recommend-site/</span>
+    </div>
   </div>
 </footer>
-<script src="script.js"></script>
+
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
